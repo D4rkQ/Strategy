@@ -1,5 +1,11 @@
 package com.company;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -31,6 +37,14 @@ public class Main {
         for (LineItem x: invoice1.getLineItems()) {
             System.out.println(x);
         }
+
+
+
+
+
+        LocalDate date = LocalDate.now();
+        System.out.println(date.plusDays(35));
+        System.out.println(date.minusDays(40));
 
     }
 }
