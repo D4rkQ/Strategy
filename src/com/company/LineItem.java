@@ -15,7 +15,7 @@ public class LineItem {
         this.amount = amount;
     }
 
-    public Money sum() throws Exception {
+    public Money sum()  {
         return money.mult(amount);
 
     }
@@ -27,5 +27,17 @@ public class LineItem {
                 ", money=" + money +
                 ", amount=" + amount +
                 '}';
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Money getMoney() {
+        return money;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 }

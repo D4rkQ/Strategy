@@ -26,7 +26,7 @@ public class Main {
         ib.addLineItem(new LineItem("Schere2",new Money(588),3));
         Invoice invoice1 = ib.createDefault(new Receiver("Hans", "Reutlingen"));
 
-        System.out.println(invoice1.sum());
+        System.out.println(invoice1.netValue());
 
         for (LineItem x: invoice1.getLineItems()) {
             System.out.println(x);

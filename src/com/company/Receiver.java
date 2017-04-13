@@ -19,4 +19,12 @@ public class Receiver {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 }

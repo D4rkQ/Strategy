@@ -7,9 +7,6 @@ import java.time.LocalDate;
  */
 public interface TaxStrategy {
 
-    LocalDate getBillDate();
-    int getBillNo();
-    Receiver getBillRec();
-    String toString();
+    Money calcTax(Invoice invoice);
 
 }
