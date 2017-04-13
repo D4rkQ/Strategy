@@ -15,8 +15,8 @@ public class LineItem {
         this.amount = amount;
     }
 
-    public double sum() {
-        return money.getValue()*amount;
+    public Money sum() throws Exception {
+        return money.mult(amount);
 
     }
 

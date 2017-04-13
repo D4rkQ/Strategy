@@ -5,15 +5,15 @@ import java.time.LocalDate;
 /**
  * Created by SAILMA on 06.04.2017.
  */
-public class InvoiceHeaderDefault implements InvoiceHeader {
+public class InvoiceHeaderBackdate implements InvoiceHeader {
 
     private final LocalDate billDate;
     private final int billNo;
     private final Receiver billRec;
     static int t;
 
-    public InvoiceHeaderDefault(Receiver billRec) {
-        this.billDate = LocalDate.now();
+    public InvoiceHeaderBackdate(Receiver billRec) {
+        this.billDate = LocalDate.now().minusDays(10);
         this.billNo = num();
         this.billRec = billRec;
 
@@ -40,11 +40,10 @@ public class InvoiceHeaderDefault implements InvoiceHeader {
 
     @Override
     public String toString() {
-        return "InvoiceHeaderDefault{" +
+        return "InvoiceHeaderBackdate{" +
                 "billDate=" + billDate +
                 ", billNo=" + billNo +
                 ", billRec=" + billRec +
                 '}';
     }
-
 }

@@ -9,17 +9,29 @@ import java.util.List;
 public class InvoiceBuilder {
 
 
-    private final List<LineItem> ListOfLineItems = new ArrayList<LineItem>();
+    private final List<LineItem> listOfLineItems = new ArrayList<LineItem>();
+    private InvoiceHeader invoiceHeader;
+    private final InvoiceHeaderFactory fac = new InvoiceHeaderFactory();
 
     public void addLineItem( LineItem lineItem ) {
-        this.ListOfLineItems.add( lineItem );
+        this.listOfLineItems.add( lineItem );
     }
 
     public void clearLineItems() {
-        this.ListOfLineItems.clear();
+        this.listOfLineItems.clear();
     }
 
-    public Invoice create() {
-        return new Invoice(ListOfLineItems);
+    public Invoice createDefault(Receiver receiver) {
+
+        invoiceHeader = fac.createDefaultInvoiceHeader(receiver);
+
+        return new Invoice(listOfLineItems, invoiceHeader);
+    }
+
+    public Invoice createBackdate(Receiver receiver) {
+
+        invoiceHeader = fac.createBackdateInvoiceHeader(receiver);
+
+        return new Invoice(listOfLineItems, invoiceHeader);
     }
 }

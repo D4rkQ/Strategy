@@ -5,80 +5,41 @@ package com.company;
  */
 public class Money {
 
-    private final long euro;
-    private final int cent;
+    private final long cent;
 
 
-    public Money(long euro, int cent) throws Exception {
-        if (String.valueOf(cent).length()>2)
-            throw new Exception();
-
-        this.euro = euro;
+    public Money(long cent){
         this.cent = cent;
     }
 
-    public Money add(Money a) throws Exception {
-        int centSol=0;
-        long euroSol=0;
-        centSol = a.getCent()+this.getCent();
-        euroSol = a.getEuro()+this.getEuro();
-
-        if (centSol > 99) {
-            euroSol++;
-            centSol -= 100;
-        }
-        return new Money(euroSol, centSol);
+    public double asDouble() {
+        return cent / 100.0;
     }
 
-    public Money subtract(Money a) throws Exception {
-        int centSol=0;
-        long euroSol=0;
-        centSol = this.getCent()-a.getCent();
-        euroSol = this.getEuro()-a.getEuro();
-
-        if (centSol < 0) {
-            euroSol--;
-            centSol += 100;
-        }
-        return new Money(euroSol, centSol);
+    public Money add(Money a) {
+        return new Money(getCent() + a.getCent());
     }
 
-    public Money mult(int fac) throws Exception {
-        //Nur Ganzzahlig erlaub; To do Centbeträge
-
-        int centSol=0;
-        int tmp=0;
-        long euroSol=0;
-        centSol = this.getCent()*fac;
-        euroSol = this.getEuro()*fac;
-
-        if (centSol > 99) {
-
-            tmp = centSol/100;
-            euroSol += tmp;
-            centSol -= (tmp*100);
-        }
-
-
-        return new Money(euroSol, centSol);
+    public Money subtract(Money a) {
+        return new Money(getCent()-a.getCent());
     }
 
-
-    public double getValue() {
-        return (cent/100.0)+euro;
+    public Money mult(double fac) {
+        return new Money(Math.round(getCent()*fac));
     }
 
-    public long getEuro() {
-        return euro;
-    }
-
-    public int getCent() {
+    public long getCent() {
         return cent;
     }
 
     @Override
     public String toString() {
-        return euro + "," + cent;
+
+        String s = ""+cent;
+        String euroPart, centPart;
+        centPart = s.substring(s.length()-2);
+        euroPart = s.substring(0,s.length()-2);
+        return euroPart +","+centPart +" €";
 
 
     }
