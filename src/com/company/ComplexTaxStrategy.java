@@ -1,9 +1,10 @@
 package com.company;
 
 /**
+ * Project: Strategy
  * Created by SAILMA on 13.04.2017.
  */
-public class ComplexTax implements TaxStrategy {
+public class ComplexTaxStrategy implements TaxStrategy {
 
 
     @Override

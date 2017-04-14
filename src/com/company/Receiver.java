@@ -1,6 +1,7 @@
 package com.company;
 
 /**
+ * Project: Strategy
  * Created by SAILMA on 06.04.2017.
  */
 public class Receiver {
@@ -24,7 +25,7 @@ public class Receiver {
         return name;
     }
 
-    public String getAddress() {
+    String getAddress() {
         return address;
     }
 }

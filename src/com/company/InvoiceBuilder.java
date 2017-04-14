@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Project: Strategy
  * Created by sailerm on 31.03.2017.
  */
 public class InvoiceBuilder {
 
-
-    private final List<LineItem> listOfLineItems = new ArrayList<LineItem>();
+    private final List<LineItem> listOfLineItems = new ArrayList<>();
     private InvoiceHeader invoiceHeader;
     private final InvoiceHeaderFactory fac = new InvoiceHeaderFactory();
 
-    public void addLineItem( LineItem lineItem ) {
+    void addLineItem( LineItem lineItem ) {
         this.listOfLineItems.add( lineItem );
     }
 
-    public void clearLineItems() {
+    void clearLineItems() {
         this.listOfLineItems.clear();
     }
 
-    public Invoice createDefault(Receiver receiver) {
+    Invoice createDefault(Receiver receiver) {
 
         invoiceHeader = fac.createDefaultInvoiceHeader(receiver);
 
