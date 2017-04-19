@@ -1,8 +1,7 @@
 package com.company;
 
-import java.time.LocalDate;
-
 /**
+ * Project: Strategy
  * Created by SAILMA on 06.04.2017.
  */
 public interface TaxStrategy {

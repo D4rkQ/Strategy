@@ -3,6 +3,7 @@ package com.company;
 import java.time.LocalDate;
 
 /**
+ * Project: Strategy
  * Created by SAILMA on 06.04.2017.
  */
 public class InvoiceHeaderBackdate implements InvoiceHeader {
@@ -10,9 +11,9 @@ public class InvoiceHeaderBackdate implements InvoiceHeader {
     private final LocalDate billDate;
     private final int billNo;
     private final Receiver billRec;
-    static int t;
+    private static int t;
 
-    public InvoiceHeaderBackdate(Receiver billRec) {
+    InvoiceHeaderBackdate(Receiver billRec) {
         this.billDate = LocalDate.now().minusDays(10);
         this.billNo = num();
         this.billRec = billRec;
